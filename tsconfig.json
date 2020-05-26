@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "jsx": "react",
+    "lib": ["dom", "es2015"],
+    "outDir": "dist",
+    "baseUrl": "src",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "declaration": true,
+    "sourceMap": true,
+    "removeComments": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noImplicitReturns": true
+  },
+  "include": ["src/*"],
+  "exclude": ["node_modules"]
+}

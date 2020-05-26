@@ -1,0 +1,41 @@
+:root {
+  --rubber-slider-bg: #fff;
+  --rubber-slider-ui: #e5eaf3;
+  --rubber-slider-accent: #15a5ec;
+}
+
+.rubber-slider {
+  overflow: visible;
+}
+
+.rubber-slider-input {
+  outline: none;
+}
+
+.rubber-slider-handle {
+  pointer-events: all;
+  fill: var(--rubber-slider-bg);
+  stroke: var(--rubber-slider-accent);
+}
+
+.rubber-slider-track {
+  stroke: var(--rubber-slider-ui);
+}
+
+.rubber-slider-pseudo-handle:focus {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-13px);
+  width: 2px;
+  height: 20px;
+  background-color: var(--rubber-slider-accent);
+  outline: none;
+}
+
+.rubber-slider-pseudo-track {
+  position: relative;
+}
+
+.rubber-slider-input {
+  pointer-events: none;
+}
