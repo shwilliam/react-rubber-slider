@@ -6,18 +6,20 @@ import {TSliderPos} from './rubber-slider.d'
 
 export const RubberSlider = ({
   id = 'rubber-slider',
+  className = '',
   value = 0,
   onChange = (value: number): void => {},
   width = 200,
   height = 100,
-  easeFunction = easeElastic,
-  easeDuration = 700,
   max = 100,
   min = 0,
   step = 1,
+  easeFunction = easeElastic,
+  easeDuration = 700,
   onDragStart = (pos: TSliderPos): void => {},
   onDrag = (pos: TSliderPos): void => {},
   onDragEnd = (pos: TSliderPos): void => {},
+  style = {},
 }) => {
   const points = [
     [0, height / 2],
@@ -114,13 +116,13 @@ export const RubberSlider = ({
 
   return (
     <SliderInput
-      style={{width}}
       value={value}
       onChange={onChange}
       min={min}
       max={max}
       step={step}
-      className="rubber-slider-input"
+      className={`rubber-slider-input ${className}`}
+      style={{...style, width}}
     >
       <SliderTrack className="rubber-slider-pseudo-track">
         <svg id={`${id}-container`} className="rubber-slider" aria-hidden />
