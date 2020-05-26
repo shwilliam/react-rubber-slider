@@ -1,6 +1,8 @@
 import React, {useEffect} from 'react'
 import {SliderInput, SliderTrack, SliderHandle} from '@reach/slider'
 import {easeElastic, event, select, line, curveCatmullRom, drag} from 'd3'
+import {getNormalizedOffset} from './utils'
+import {TSliderPos} from './rubber-slider.d'
 
 export const RubberSlider = ({
   id = 'rubber-slider',
@@ -13,6 +15,9 @@ export const RubberSlider = ({
   max = 100,
   min = 0,
   step = 1,
+  onDragStart = (pos: TSliderPos): void => {},
+  onDrag = (pos: TSliderPos): void => {},
+  onDragEnd = (pos: TSliderPos): void => {},
 }) => {
   const points = [
     [0, height / 2],
@@ -20,13 +25,35 @@ export const RubberSlider = ({
     [width, height / 2],
   ]
 
-  const onDrag = () => {
-    event.subject[0] = Math.max(0, Math.min(width, event.x))
-    event.subject[1] = Math.max(0, Math.min(height, event.y))
+  const handleDrag = () => {
+    const x = Math.max(0, Math.min(width, event.x))
+    const y = Math.max(0, Math.min(height, event.y))
+
+    event.subject[0] = x
+    event.subject[1] = y
+    onDrag([
+      (points[1][0] / width) * (max - min) + min,
+      getNormalizedOffset(y, height),
+    ])
     update()
   }
   const getDragTarget = () => event.sourceEvent.target.__data__
-  const onDragEnd = () => {
+  const handleDragStart = () => {
+    const y = Math.max(0, Math.min(height, event.y))
+
+    onDragStart([
+      (points[1][0] / width) * (max - min) + min,
+      getNormalizedOffset(y, height),
+    ])
+  }
+  const handleDragEnd = () => {
+    const y = Math.max(0, Math.min(height, event.y))
+
+    onDragEnd([
+      (points[1][0] / width) * (max - min) + min,
+      getNormalizedOffset(y, height),
+    ])
+
     points[1][1] = height / 2
     update()
   }
@@ -36,8 +63,9 @@ export const RubberSlider = ({
       .call(
         drag()
           .subject(getDragTarget)
-          .on('drag', onDrag)
-          .on('end', onDragEnd) as any,
+          .on('start', handleDragStart)
+          .on('drag', handleDrag)
+          .on('end', handleDragEnd) as any,
       )
 
     svg
