@@ -1,1 +1,40 @@
-# react-rubber-slider
+# \<RubberSlider/\>
+
+## Installation
+
+```shell
+$ npm i @shwilliam/react-rubber-slider
+$ npm i @reach/slider d3
+```
+
+## Usage
+
+```jsx
+import React, {useState} from 'react'
+import RubberSlider from '@shwilliam/react-rubber-slider'
+import '@shwilliam/react-rubber-slider/dist/styles.css'
+
+export const App = () => {
+  const [value, setValue] = useState(0.5)
+
+  return <RubberSlider width={250} value={value} onChange={setValue} />
+}
+```
+
+## Development
+
+To start local development, simply install npm dependencies (`npm i`) and run `npm run build:watch` to watch ts files in `src/`. Built files can be found in `dist/`.
+
+## Demo
+
+To run the demo, ensure you have run the build script and have a `dist` dir in your project root. Then run `npm run demo:setup` to copy these to the demo and `npm run demo` to start it locally.
+
+## Contributing
+
+This project is open to and encourages contributions! Feel free to discuss any bug fixes/features in the [issues](https://github.com/shwilliam/react-rubber-slider/issues). If you wish to work on this project:
+
+1. Fork [this project](https://github.com/shwilliam/react-rubber-slider)
+2. Create a branch (`git checkout -b new-branch`)
+3. Commit your changes (`git commit -am 'add new feature'`)
+4. Push to the branch (`git push origin new-branch`)
+5. [Submit a pull request!](https://github.com/shwilliam/react-rubber-slider/pull/new/master)
