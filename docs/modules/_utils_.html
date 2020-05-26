@@ -3,17 +3,17 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>@shwilliam/react-rubber-slider</title>
+	<title>&quot;utils&quot; | @shwilliam/react-rubber-slider</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="../assets/css/main.css">
 </head>
 <body>
 <header>
 	<div class="tsd-page-toolbar">
 		<div class="container">
 			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
 						<input id="tsd-search-field" type="text" />
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">@shwilliam/react-rubber-slider</a>
+					<a href="../index.html" class="title">@shwilliam/react-rubber-slider</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -53,88 +53,111 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="globals.html">Globals</a>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="_utils_.html">&quot;utils&quot;</a>
 				</li>
 			</ul>
-			<h1>@shwilliam/react-rubber-slider</h1>
+			<h1>External module &quot;utils&quot;</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<div class="tsd-panel tsd-typography">
-				<a href="#ltrubberslidergt" id="ltrubberslidergt" style="color: inherit; text-decoration: none;">
-					<h1>&lt;RubberSlider/&gt;</h1>
-				</a>
-				<p><img src="https://user-images.githubusercontent.com/38357771/82850378-02b46c00-9eb1-11ea-9b7c-5f8334484f6e.gif" alt="Example usage"></p>
-				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
-					<h2>Installation</h2>
-				</a>
-				<pre><code class="language-shell"><span class="hljs-meta">$</span><span class="bash"> npm i @shwilliam/react-rubber-slider</span>
-<span class="hljs-meta">$</span><span class="bash"> npm i @reach/slider d3</span></code></pre>
-				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
-					<h2>Usage</h2>
-				</a>
-				<pre><code class="language-jsx"><span class="hljs-keyword">import</span> React, {useState} <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
-<span class="hljs-keyword">import</span> RubberSlider <span class="hljs-keyword">from</span> <span class="hljs-string">'@shwilliam/react-rubber-slider'</span>
-<span class="hljs-keyword">import</span> <span class="hljs-string">'@shwilliam/react-rubber-slider/dist/styles.css'</span>
-
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> App = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-  <span class="hljs-keyword">const</span> [value, setValue] = useState(<span class="hljs-number">0.5</span>)
-
-  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">RubberSlider</span> <span class="hljs-attr">width</span>=<span class="hljs-string">{250}</span> <span class="hljs-attr">value</span>=<span class="hljs-string">{value}</span> <span class="hljs-attr">onChange</span>=<span class="hljs-string">{setValue}</span> /&gt;</span>
-}</span></code></pre>
-				<p><a href="https://codesandbox.io/s/gifted-shannon-qed9g?fontsize=14&amp;hidenavigation=1&amp;theme=dark"><img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="@shwilliam/react-rubber-slider demo"></a></p>
-				<a href="#styling" id="styling" style="color: inherit; text-decoration: none;">
-					<h2>Styling</h2>
-				</a>
-				<p>Override the default slider styles by targeting the following:</p>
-				<pre><code class="language-css"><span class="hljs-selector-class">.rubber-slider</span> {
-}
-<span class="hljs-selector-class">.rubber-slider-input</span> {
-}
-<span class="hljs-selector-class">.rubber-slider-pseudo-track</span> {
-}
-<span class="hljs-selector-class">.rubber-slider-pseudo-handle</span> {
-}</code></pre>
-				<a href="#development" id="development" style="color: inherit; text-decoration: none;">
-					<h2>Development</h2>
-				</a>
-				<p>To start local development, simply install npm dependencies (<code>npm i</code>) and run <code>npm run build:watch</code> to watch ts files in <code>src/</code>. Built files can be found in <code>dist/</code>.</p>
-				<a href="#demo" id="demo" style="color: inherit; text-decoration: none;">
-					<h2>Demo</h2>
-				</a>
-				<p>To run the demo, ensure you have run the build script and have a <code>dist</code> dir in your project root. Then run <code>npm run demo:setup</code> to copy these to the demo and <code>npm run demo</code> to start it locally.</p>
-				<a href="#contributing" id="contributing" style="color: inherit; text-decoration: none;">
-					<h2>Contributing</h2>
-				</a>
-				<p>This project is open to and encourages contributions! Feel free to discuss any bug fixes/features in the <a href="https://github.com/shwilliam/react-rubber-slider/issues">issues</a>. If you wish to work on this project:</p>
-				<ol>
-					<li>Fork <a href="https://github.com/shwilliam/react-rubber-slider">this project</a></li>
-					<li>Create a branch (<code>git checkout -b new-branch</code>)</li>
-					<li>Commit your changes (<code>git commit -am &#39;add new feature&#39;</code>)</li>
-					<li>Push to the branch (<code>git push origin new-branch</code>)</li>
-					<li><a href="https://github.com/shwilliam/react-rubber-slider/pull/new/master">Submit a pull request!</a></li>
-				</ol>
-			</div>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_utils_.html#getnormalizedoffset" class="tsd-kind-icon">get<wbr>Normalized<wbr>Offset</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_utils_.html#getsteppedvalue" class="tsd-kind-icon">get<wbr>Stepped<wbr>Value</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="getnormalizedoffset" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> get<wbr>Normalized<wbr>Offset</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Normalized<wbr>Offset<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, max<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/shwilliam/react-rubber-slider/blob/02b16dd/src/utils.ts#L1">utils.ts:1</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>max: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="getsteppedvalue" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> get<wbr>Stepped<wbr>Value</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Stepped<wbr>Value<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, step<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/shwilliam/react-rubber-slider/blob/02b16dd/src/utils.ts#L4">utils.ts:4</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>step: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
 					<li class="globals  ">
-						<a href="globals.html"><em>Globals</em></a>
+						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_rubber_slider_.html">&quot;rubber-<wbr>slider&quot;</a>
+						<a href="_rubber_slider_.html">&quot;rubber-<wbr>slider&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_utils_.html">&quot;utils&quot;</a>
+					<li class="current tsd-kind-external-module">
+						<a href="_utils_.html">&quot;utils&quot;</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_utils_.html#getnormalizedoffset" class="tsd-kind-icon">get<wbr>Normalized<wbr>Offset</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_utils_.html#getsteppedvalue" class="tsd-kind-icon">get<wbr>Stepped<wbr>Value</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -204,7 +227,7 @@
 	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
-<script src="assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>
