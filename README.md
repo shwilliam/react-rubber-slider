@@ -25,6 +25,21 @@ export const App = () => {
 
 [![@shwilliam/react-rubber-slider demo](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/gifted-shannon-qed9g?fontsize=14&hidenavigation=1&theme=dark)
 
+## Styling
+
+Override the default slider styles by targeting the following:
+
+```css
+.rubber-slider {
+}
+.rubber-slider-input {
+}
+.rubber-slider-pseudo-track {
+}
+.rubber-slider-pseudo-handle {
+}
+```
+
 ## Development
 
 To start local development, simply install npm dependencies (`npm i`) and run `npm run build:watch` to watch ts files in `src/`. Built files can be found in `dist/`.
