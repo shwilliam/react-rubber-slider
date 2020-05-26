@@ -1,5 +1,7 @@
 # \<RubberSlider/\>
 
+![Example usage](https://user-images.githubusercontent.com/38357771/82850378-02b46c00-9eb1-11ea-9b7c-5f8334484f6e.gif)
+
 ## Installation
 
 ```shell
