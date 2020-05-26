@@ -1,7 +1,14 @@
 import React, {useEffect} from 'react'
 import {SliderHandle, SliderInput, SliderTrack} from '@reach/slider'
 import {curveCatmullRom, drag, easeElastic, event, line, select} from 'd3'
-import {getNormalizedOffset, getSteppedValue} from './utils'
+import {
+  getDragTarget,
+  getEventCoords,
+  getNormalizedOffset,
+  getPosFromValue,
+  getSteppedValue,
+  getValueFromPos,
+} from './utils'
 import {IRubberSliderProps, TSliderPos} from './rubber-slider.d'
 
 export const RubberSlider: React.FC<IRubberSliderProps> = ({
@@ -16,43 +23,45 @@ export const RubberSlider: React.FC<IRubberSliderProps> = ({
   step = 1,
   easeFunction = easeElastic,
   easeDuration = 700,
-  onDragStart = (pos: TSliderPos): void => {},
-  onDrag = (pos: TSliderPos): void => {},
-  onDragEnd = (pos: TSliderPos): void => {},
+  onDragStart = (position: TSliderPos): void => {},
+  onDrag = (position: TSliderPos): void => {},
+  onDragEnd = (position: TSliderPos): void => {},
   style = {},
 }) => {
   const points = [
     [0, height / 2],
-    [((value - min) / (max - min)) * width, height / 2],
+    [getPosFromValue(value, width, min, max), height / 2],
     [width, height / 2],
   ]
 
-  const handleDrag = () => {
-    const x = Math.max(0, Math.min(width, event.x))
-    const y = Math.max(0, Math.min(height, event.y))
-    const value = (points[1][0] / width) * (max - min) + min
-
-    event.subject[0] = x
-    event.subject[1] = y
-    onDrag([getSteppedValue(value, step), getNormalizedOffset(y, height)])
-    update()
-  }
-  const getDragTarget = () => event.sourceEvent.target.__data__
   const handleDragStart = () => {
-    const y = Math.max(0, Math.min(height, event.y))
-    const value = (points[1][0] / width) * (max - min) + min
+    const [, y] = getEventCoords(width, height)
+    const value = getValueFromPos(points[1][0], width, min, max)
 
     onDragStart([getSteppedValue(value, step), getNormalizedOffset(y, height)])
   }
+
+  const handleDrag = () => {
+    const [x, y] = getEventCoords(width, height)
+    const value = getValueFromPos(points[1][0], width, min, max)
+
+    event.subject[0] = x
+    event.subject[1] = y
+
+    onDrag([getSteppedValue(value, step), getNormalizedOffset(y, height)])
+    update()
+  }
+
   const handleDragEnd = () => {
-    const y = Math.max(0, Math.min(height, event.y))
-    const value = (points[1][0] / width) * (max - min) + min
+    const [, y] = getEventCoords(width, height)
+    const value = getValueFromPos(points[1][0], width, min, max)
 
     onDragEnd([getSteppedValue(value, step), getNormalizedOffset(y, height)])
 
     points[1][1] = height / 2
     update()
   }
+
   const draw = () => {
     const svg = select(`#${id}-container`)
       .attr('viewBox', `0, 0, ${width}, ${height}`)
@@ -73,8 +82,14 @@ export const RubberSlider: React.FC<IRubberSliderProps> = ({
       .attr('stroke-width', 3)
       .call(update)
   }
+
   const update = () => {
+    onChange(
+      getSteppedValue(getValueFromPos(points[1][0], width, min, max), step),
+    )
+
     const svg = select('svg')
+
     svg
       .select('path')
       .transition()
@@ -83,7 +98,6 @@ export const RubberSlider: React.FC<IRubberSliderProps> = ({
       .attr('d', line().curve(curveCatmullRom) as any)
 
     const circle = svg.selectAll('g').data([points[1]], d => d as string)
-    onChange(getSteppedValue((points[1][0] / width) * (max - min) + min, step))
 
     circle
       .enter()
