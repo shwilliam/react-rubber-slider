@@ -3,12 +3,13 @@ import {SliderInput, SliderTrack, SliderHandle} from '@reach/slider'
 import {easeElastic, event, select, line, curveCatmullRom, drag} from 'd3'
 
 export const RubberSlider = ({
+  id = 'rubber-slider',
   value = 0,
   onChange = (value: number): void => {},
   width = 200,
   height = 100,
-  id = 'rubber-slider',
-  easing = easeElastic,
+  easeFunction = easeElastic,
+  easeDuration = 700,
 }) => {
   const points = [
     [0, height / 2],
@@ -50,8 +51,8 @@ export const RubberSlider = ({
     svg
       .select('path')
       .transition()
-      .duration(500)
-      .ease(easing)
+      .duration(easeDuration)
+      .ease(easeFunction)
       .attr('d', line().curve(curveCatmullRom) as any)
 
     const circle = svg.selectAll('g').data([points[1]], d => d as string)
@@ -69,8 +70,8 @@ export const RubberSlider = ({
       })
       .merge(circle as any)
       .transition()
-      .duration(500)
-      .ease(easing)
+      .duration(easeDuration)
+      .ease(easeFunction)
       .attr('transform', d => `translate(${d})`)
   }
 
