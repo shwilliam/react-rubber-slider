@@ -10,10 +10,13 @@ export const RubberSlider = ({
   height = 100,
   easeFunction = easeElastic,
   easeDuration = 700,
+  max = 100,
+  min = 0,
+  step = 1,
 }) => {
   const points = [
     [0, height / 2],
-    [value * width, height / 2],
+    [((value - min) / (max - min)) * width, height / 2],
     [width, height / 2],
   ]
 
@@ -56,7 +59,8 @@ export const RubberSlider = ({
       .attr('d', line().curve(curveCatmullRom) as any)
 
     const circle = svg.selectAll('g').data([points[1]], d => d as string)
-    onChange(points[1][0] / width)
+    // TODO: respect step size
+    onChange((points[1][0] / width) * (max - min) + min)
 
     circle
       .enter()
@@ -85,9 +89,9 @@ export const RubberSlider = ({
       style={{width}}
       value={value}
       onChange={onChange}
-      min={0}
-      max={1}
-      step={0.01}
+      min={min}
+      max={max}
+      step={step}
       className="rubber-slider-input"
     >
       <SliderTrack className="rubber-slider-pseudo-track">
