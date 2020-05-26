@@ -1,6 +1,6 @@
 # \<RubberSlider/\>
 
-![Example usage](https://user-images.githubusercontent.com/38357771/82850378-02b46c00-9eb1-11ea-9b7c-5f8334484f6e.gif)
+![Demo screengrab](https://user-images.githubusercontent.com/38357771/82888522-44b7cf00-9efe-11ea-88d7-7cb4f8df2c36.gif)
 
 ## Installation
 
