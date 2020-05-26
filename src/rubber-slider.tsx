@@ -8,6 +8,7 @@ export const RubberSlider = ({
   width = 200,
   height = 100,
   id = 'rubber-slider',
+  easing = d3.easeElastic,
 }) => {
   const points = [
     [0, height / 2],
@@ -40,6 +41,7 @@ export const RubberSlider = ({
     svg
       .append('path')
       .datum(points)
+      .attr('class', 'rubber-slider-track')
       .attr('fill', 'none')
       .attr('stroke', 'black')
       .attr('stroke-width', 3)
@@ -49,8 +51,10 @@ export const RubberSlider = ({
     const svg = d3.select('svg')
     svg
       .select('path')
+      .transition()
+      .duration(500)
+      .ease(easing)
       .attr('d', d3.line().curve(d3.curveCatmullRom) as any)
-      .attr('class', 'rubber-slider-track')
 
     const circle = svg.selectAll('g').data([points[1]], d => d as string)
     onChange(points[1][0] / width)
@@ -68,7 +72,7 @@ export const RubberSlider = ({
       .merge(circle as any)
       .transition()
       .duration(500)
-      .ease(d3.easeElastic)
+      .ease(easing)
       .attr('transform', d => `translate(${d})`)
   }
 
