@@ -2,9 +2,9 @@ import React, {useEffect} from 'react'
 import {SliderHandle, SliderInput, SliderTrack} from '@reach/slider'
 import {curveCatmullRom, drag, easeElastic, event, line, select} from 'd3'
 import {getNormalizedOffset, getSteppedValue} from './utils'
-import {TSliderPos} from './rubber-slider.d'
+import {IRubberSliderProps, TSliderPos} from './rubber-slider.d'
 
-export const RubberSlider = ({
+export const RubberSlider: React.FC<IRubberSliderProps> = ({
   id = 'rubber-slider',
   className = '',
   value = 0,
