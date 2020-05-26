@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
-import {SliderInput, SliderTrack, SliderHandle} from '@reach/slider'
-import {easeElastic, event, select, line, curveCatmullRom, drag} from 'd3'
-import {getNormalizedOffset} from './utils'
+import {SliderHandle, SliderInput, SliderTrack} from '@reach/slider'
+import {curveCatmullRom, drag, easeElastic, event, line, select} from 'd3'
+import {getNormalizedOffset, getSteppedValue} from './utils'
 import {TSliderPos} from './rubber-slider.d'
 
 export const RubberSlider = ({
@@ -30,31 +30,25 @@ export const RubberSlider = ({
   const handleDrag = () => {
     const x = Math.max(0, Math.min(width, event.x))
     const y = Math.max(0, Math.min(height, event.y))
+    const value = (points[1][0] / width) * (max - min) + min
 
     event.subject[0] = x
     event.subject[1] = y
-    onDrag([
-      (points[1][0] / width) * (max - min) + min,
-      getNormalizedOffset(y, height),
-    ])
+    onDrag([getSteppedValue(value, step), getNormalizedOffset(y, height)])
     update()
   }
   const getDragTarget = () => event.sourceEvent.target.__data__
   const handleDragStart = () => {
     const y = Math.max(0, Math.min(height, event.y))
+    const value = (points[1][0] / width) * (max - min) + min
 
-    onDragStart([
-      (points[1][0] / width) * (max - min) + min,
-      getNormalizedOffset(y, height),
-    ])
+    onDragStart([getSteppedValue(value, step), getNormalizedOffset(y, height)])
   }
   const handleDragEnd = () => {
     const y = Math.max(0, Math.min(height, event.y))
+    const value = (points[1][0] / width) * (max - min) + min
 
-    onDragEnd([
-      (points[1][0] / width) * (max - min) + min,
-      getNormalizedOffset(y, height),
-    ])
+    onDragEnd([getSteppedValue(value, step), getNormalizedOffset(y, height)])
 
     points[1][1] = height / 2
     update()
@@ -89,8 +83,7 @@ export const RubberSlider = ({
       .attr('d', line().curve(curveCatmullRom) as any)
 
     const circle = svg.selectAll('g').data([points[1]], d => d as string)
-    // TODO: respect step size
-    onChange((points[1][0] / width) * (max - min) + min)
+    onChange(getSteppedValue((points[1][0] / width) * (max - min) + min, step))
 
     circle
       .enter()
