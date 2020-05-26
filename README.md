@@ -25,6 +25,24 @@ export const App = () => {
 
 [![@shwilliam/react-rubber-slider demo](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/gifted-shannon-qed9g?fontsize=14&hidenavigation=1&theme=dark)
 
+## Component API
+
+| Prop         | Type     | Required | Default         |
+| ------------ | -------- | -------- | --------------- |
+| id           | string   | false    | 'rubber-slider' |
+| value        | number   | false    | 0               |
+| onChange     | function | false    | no-op           |
+| width        | number   | false    | 200             |
+| height       | number   | false    | 100             |
+| max          | number   | false    | 100             |
+| min          | number   | false    | 0               |
+| step         | number   | false    | 1               |
+| easeFunction | function | false    | d3.easeElastic  |
+| easeDuration | number   | false    | 700             |
+| onDragStart  | function | false    | no-op           |
+| onDrag       | function | false    | no-op           |
+| onDragEnd    | function | false    | no-op           |
+
 ## Styling
 
 Override the default slider styles by targeting the following:
