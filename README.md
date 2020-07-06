@@ -62,6 +62,10 @@ Override the default slider styles by targeting the following:
 
 To start local development, simply install npm dependencies (`npm i`) and run `npm run build:watch` to watch ts files in `src/`. Built files can be found in `dist/`.
 
+## Testing
+
+To run existing tests locally, run the command `npm t`, or `npm run test:watch` for watch mode.
+
 ## Demo
 
 To run the demo, ensure you have run the build script and have a `dist` dir in your project root. Then run `npm run demo:setup` to copy these to the demo and `npm run demo` to start it locally.
