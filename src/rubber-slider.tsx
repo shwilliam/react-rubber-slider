@@ -13,6 +13,7 @@ import {IRubberSliderProps, TSliderPos} from './rubber-slider.d'
 
 export const RubberSlider: React.FC<IRubberSliderProps> = ({
   id = 'rubber-slider',
+  name,
   className = '',
   value = 0,
   onChange = (value: number): void => {},
@@ -127,6 +128,7 @@ export const RubberSlider: React.FC<IRubberSliderProps> = ({
 
   return (
     <SliderInput
+      name={name}
       value={value}
       onChange={onChange}
       min={min}
