@@ -97,6 +97,10 @@ export const RubberSlider: React.FC<IRubberSliderProps> = ({
       .ease(easeFunction)
       .attr('d', line().curve(curveCatmullRom) as any)
 
+    // don't apply svg transitions during testing
+    // https://github.com/d3/d3/issues/1545
+    if (process.env.NODE_ENV === 'testing') return
+
     const circle = svg.selectAll('g').data([points[1]], d => d as string)
 
     circle
@@ -132,8 +136,8 @@ export const RubberSlider: React.FC<IRubberSliderProps> = ({
       style={{...style, width}}
     >
       <SliderTrack className="rubber-slider-pseudo-track">
-        <svg id={`${id}-container`} className="rubber-slider" aria-hidden />
         <SliderHandle className="rubber-slider-pseudo-handle" />
+        <svg id={`${id}-container`} className="rubber-slider" aria-hidden />
       </SliderTrack>
     </SliderInput>
   )
