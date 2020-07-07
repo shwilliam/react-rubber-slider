@@ -29,6 +29,7 @@ export const App = () => {
 
 | Prop         | Type     | Required | Default         |
 | ------------ | -------- | -------- | --------------- |
+| name         | string   | true     |                 |
 | id           | string   | false    | 'rubber-slider' |
 | value        | number   | false    | 0               |
 | onChange     | function | false    | no-op           |
