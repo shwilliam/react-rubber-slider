@@ -1,9 +1,11 @@
 {
   "name": "@shwilliam/react-rubber-slider",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A springy React range input",
   "main": "dist/index.js",
-  "files": ["dist/*"],
+  "files": [
+    "dist/*"
+  ],
   "scripts": {
     "build": "tsc && cp ./src/styles.css ./dist/styles.css",
     "build:watch": "tsc --watch",
@@ -17,7 +19,12 @@
     "type": "git",
     "url": "git+https://github.com/shwilliam/react-rubber-slider.git"
   },
-  "keywords": ["react", "slider", "range", "input"],
+  "keywords": [
+    "react",
+    "slider",
+    "range",
+    "input"
+  ],
   "author": "William L <w-lindvall@outlook.com>",
   "license": "MIT",
   "bugs": {
