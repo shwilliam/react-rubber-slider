@@ -10,6 +10,7 @@ export const App = () => {
     <div className="app">
       <h1 className="title">rubber-slider</h1>
       <RubberSlider
+        name="value"
         width={250}
         value={value}
         onChange={setValue}
