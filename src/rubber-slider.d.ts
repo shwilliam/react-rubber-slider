@@ -1,6 +1,6 @@
 export interface IRubberSliderProps {
   id?: string
-  name: string
+  name?: string
   className?: string
   value?: number
   onChange?: (value: number) => void

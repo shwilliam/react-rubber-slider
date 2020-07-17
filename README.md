@@ -19,7 +19,7 @@ import '@shwilliam/react-rubber-slider/dist/styles.css'
 export const App = () => {
   const [value, setValue] = useState(0.5)
 
-  return <RubberSlider name="val" width={250} value={value} onChange={setValue} />
+  return <RubberSlider width={250} value={value} onChange={setValue} />
 }
 ```
 
@@ -29,7 +29,7 @@ export const App = () => {
 
 | Prop         | Type     | Required | Default         |
 | ------------ | -------- | -------- | --------------- |
-| name         | string   | true     |                 |
+| name         | string   | false    | undefined       |
 | id           | string   | false    | 'rubber-slider' |
 | value        | number   | false    | 0               |
 | onChange     | function | false    | no-op           |
