@@ -89,6 +89,10 @@ export const RubberSlider: React.FC<IRubberSliderProps> = ({
       getSteppedValue(getValueFromPos(points[1][0], width, min, max), step),
     )
 
+    // don't apply svg transitions during testing
+    // https://github.com/d3/d3/issues/1545
+    if (process.env.NODE_ENV === 'testing') return
+
     const svg = select('svg')
 
     svg
@@ -97,10 +101,6 @@ export const RubberSlider: React.FC<IRubberSliderProps> = ({
       .duration(easeDuration)
       .ease(easeFunction)
       .attr('d', line().curve(curveCatmullRom) as any)
-
-    // don't apply svg transitions during testing
-    // https://github.com/d3/d3/issues/1545
-    if (process.env.NODE_ENV === 'testing') return
 
     const circle = svg.selectAll('g').data([points[1]], d => d as string)
 
@@ -119,6 +119,30 @@ export const RubberSlider: React.FC<IRubberSliderProps> = ({
       .duration(easeDuration)
       .ease(easeFunction)
       .attr('transform', d => `translate(${d})`)
+
+    circle.exit().remove()
+  }
+
+  const handleChange = (value: number) => {
+    onChange(value)
+
+    const svg = select('svg')
+    const circle = svg.selectAll('g').data([points[1]], d => d as string)
+
+    circle
+      .enter()
+      .append('g')
+      .call(g => {
+        g.append('circle')
+          .attr('r', 20)
+          .attr('stroke-width', 3)
+          .attr('fill', 'none')
+          .attr('class', 'rubber-slider-handle')
+      })
+      .merge(circle as any)
+      .attr('transform', d => `translate(${d})`)
+
+    circle.exit().remove()
   }
 
   useEffect(() => {
@@ -130,7 +154,7 @@ export const RubberSlider: React.FC<IRubberSliderProps> = ({
     <SliderInput
       name={name}
       value={value}
-      onChange={onChange}
+      onChange={handleChange}
       min={min}
       max={max}
       step={step}
