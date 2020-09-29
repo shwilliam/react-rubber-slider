@@ -1,60 +1,60 @@
 {
-  "name": "@shwilliam/react-rubber-slider",
-  "version": "0.1.4",
-  "description": "A springy React range input",
-  "main": "dist/index.js",
-  "files": [
-    "dist/*"
-  ],
-  "scripts": {
-    "build": "tsc && cp ./src/styles.css ./dist/styles.css",
-    "build:watch": "tsc --watch",
-    "build:docs": "typedoc --out docs src",
-    "demo:setup": "rm -r ./demo/src/react-rubber-slider && cp -r ./dist ./demo/src/react-rubber-slider",
-    "demo": "cd demo && npm start",
-    "test": "NODE_ENV=testing jest",
-    "test:watch": "NODE_END=testing jest --watch"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/shwilliam/react-rubber-slider.git"
-  },
-  "keywords": [
-    "react",
-    "slider",
-    "range",
-    "input"
-  ],
-  "author": "William L <w-lindvall@outlook.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/shwilliam/react-rubber-slider/issues"
-  },
-  "homepage": "https://github.com/shwilliam/react-rubber-slider#readme",
-  "peerDependencies": {
-    "@reach/slider": "^0.10.3",
-    "d3": "^5.16.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
-  },
-  "devDependencies": {
-    "@babel/preset-env": "^7.9.6",
-    "@babel/preset-react": "^7.9.4",
-    "@reach/slider": "^0.10.3",
-    "@testing-library/jest-dom": "^5.11.0",
-    "@testing-library/react": "^10.4.4",
-    "@testing-library/react-hooks": "^3.2.1",
-    "@types/d3": "^5.7.2",
-    "@types/jest": "^26.0.3",
-    "@types/react": "^16.9.17",
-    "d3": "^5.16.0",
-    "eslint": "^6.8.0",
-    "eslint-plugin-react": "^7.18.0",
-    "jest": "^26.1.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "ts-jest": "^26.1.1",
-    "typedoc": "^0.16.6",
-    "typescript": "^3.7.4"
-  }
+	"name": "@shwilliam/react-rubber-slider",
+	"version": "0.1.4",
+	"description": "A springy React range input",
+	"main": "dist/index.js",
+	"files": [
+		"dist/*"
+	],
+	"scripts": {
+		"build": "tsc && cp ./src/styles.css ./dist/styles.css",
+		"build:watch": "tsc --watch",
+		"build:docs": "typedoc --out docs src",
+		"demo:setup": "rm -rf ./demo/src/react-rubber-slider && cp -r ./dist ./demo/src/react-rubber-slider",
+		"demo": "cd demo && npm start",
+		"test": "NODE_ENV=testing jest",
+		"test:watch": "NODE_END=testing jest --watch"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/shwilliam/react-rubber-slider.git"
+	},
+	"keywords": [
+		"react",
+		"slider",
+		"range",
+		"input"
+	],
+	"author": "William L <w-lindvall@outlook.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/shwilliam/react-rubber-slider/issues"
+	},
+	"homepage": "https://github.com/shwilliam/react-rubber-slider#readme",
+	"peerDependencies": {
+		"@reach/slider": "^0.10.3",
+		"d3": "^5.16.0",
+		"react": "^16.12.0",
+		"react-dom": "^16.12.0"
+	},
+	"devDependencies": {
+		"@babel/preset-env": "^7.9.6",
+		"@babel/preset-react": "^7.9.4",
+		"@reach/slider": "^0.10.3",
+		"@testing-library/jest-dom": "^5.11.0",
+		"@testing-library/react": "^10.4.4",
+		"@testing-library/react-hooks": "^3.2.1",
+		"@types/d3": "^5.7.2",
+		"@types/jest": "^26.0.3",
+		"@types/react": "^16.9.17",
+		"d3": "^5.16.0",
+		"eslint": "^6.8.0",
+		"eslint-plugin-react": "^7.18.0",
+		"jest": "^26.1.0",
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1",
+		"ts-jest": "^26.1.1",
+		"typedoc": "^0.16.6",
+		"typescript": "^3.7.4"
+	}
 }
